@@ -33,7 +33,7 @@ try {
 	}
 
 	if (empty($output)) {
-		echo 'No units in '.$state.' state'."\n";
+		echo 'OK - No units in '.$state.' state'."\n";
 		exit(NAGIOS_OK);
 	}
 
@@ -56,9 +56,9 @@ try {
 
 	$c = count($units);
 	if ($c === 1) {
-		echo ''.count($units).' unit in '.$state.' state: '.join(', ', $units)."\n";
+		echo 'CRITICAL - '.count($units).' unit in '.$state.' state: '.join(', ', $units)."\n";
 	} else {
-		echo ''.count($units).' units in '.$state.' state: '.join(', ', $units)."\n";
+		echo 'CRITICAL - '.count($units).' units in '.$state.' state: '.join(', ', $units)."\n";
 	}
 	exit(NAGIOS_CRITICAL);
 
